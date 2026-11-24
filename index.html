@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#123b63"><link rel="manifest" href="manifest.json">
+<title>ACCL Payee Scanner</title><link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+<header><h1>ACCL Payee Scanner</h1><p>Voucher Code Scanner • Excel Export</p></header>
+<main>
+<section class="panel">
+<h2>1. स्कैन करें</h2>
+<p class="hint">Voucher की साफ फोटो चुनें। पहली बार OCR चलाने के लिए इंटरनेट आवश्यक है।</p>
+<input id="photo" type="file" accept="image/*" capture="environment">
+<button id="scan">फोटो स्कैन करें</button><p id="status">तैयार है।</p>
+</section>
+<section class="panel">
+<h2>2. मिला हुआ कोड जाँचें</h2>
+<label>Code Type</label><select id="type"><option>Payee Code</option><option>Party Code</option><option>Vendor Code</option></select>
+<label>Code Number</label><input id="code" placeholder="कोड यहाँ आएगा">
+<button id="save">रिकॉर्ड सेव करें</button>
+</section>
+<section class="panel">
+<h2>3. सेव रिकॉर्ड</h2><p id="count">कुल रिकॉर्ड: 0</p><div class="actions">
+<button id="export">Excel डाउनलोड करें</button><button class="secondary" id="clear">रिकॉर्ड साफ करें</button></div>
+<div id="records"></div>
+</section>
+</main>
+<footer>रिकॉर्ड इसी डिवाइस के ब्राउज़र में सेव होते हैं। समान कोड वाले अलग-अलग वाउचर भी सेव होंगे।</footer>
+<script src="app.js"></script>
+</body></html>
